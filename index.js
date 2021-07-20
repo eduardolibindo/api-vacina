@@ -3,7 +3,7 @@ const app = express();
 const puppeteer = require('puppeteer');
 
 app.get('/', async (req, res) => {
-    const browser = await puppeteer.launch({ headless: false });
+    const browser = await puppeteer.launch({ headless: true, ignoreDefaultArgs: ['--disable-extensions'] });
     const page = await browser.newPage();
     await page.goto('https://vacina.saude.rs.gov.br/');
     
